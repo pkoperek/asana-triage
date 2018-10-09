@@ -1,0 +1,13 @@
+runtime: python27
+api_version: 1
+threadsafe: true
+
+
+handlers:
+- url: /api/.*
+  script: main.app
+  secure: always
+- url: /(.*\.(html|ico|css|js))$
+  static_files: ui/build/\1
+  upload: ui/build/.*\.(html|ico|css|js)$
+  secure: always
